@@ -1,0 +1,14 @@
+{
+  "name": "resume",
+  "version": "1.0.0",
+  "description": "Hajime's Professional Resume",
+  "main": "gen-resume.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon gen-resume.js",
+    "build": "node gen-resume.js",
+    "clean": "del index.html || rm index.html"
+  },
+  "author": "Hajime Yamasaki Vukelic",
+  "license": "UNLICENSED"
+}

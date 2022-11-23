@@ -86,7 +86,8 @@
         if (!$btn) return
         let
           attr = $btn.value,
-          nextState = $btn.ariaChecked = TRUE_FALSE_SWITCH[$btn.ariaChecked]
+          nextState
+        $btn.setAttribute('aria-checked', nextState = TRUE_FALSE_SWITCH[$btn.getAttribute('aria-checked')])
         $relatedTable.toggleAttribute(attr, nextState === 'true')
       }
       this.hidden = false

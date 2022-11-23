@@ -1,0 +1,475 @@
+@media screen {
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline-offset: 3px;
+    transition: outline 0.3s;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: inherit;
+  }
+
+  li, summary {
+    list-style: none;
+  }
+
+  html {
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  :root {
+    --rsm-bg: #fcfcef;
+    --rms-bg-shadow: #c2c2af;
+    --rsm-fg: #2b3739;
+    --rsm-fg-light: #e3e8e8;
+    --rsm-fg-link: #0690af;
+    --rsm-fg-link-visited: #800e8d;
+  }
+
+  body {
+    background: var(--rsm-bg);
+    font-size: 120%;
+  }
+
+  a {
+    color: var(--rsm-fg-link);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a:visited {
+    color: var(--rsm-fg-link-visited);
+  }
+
+  main {
+    padding-bottom: 30vh;
+  }
+
+  nav h2,
+  #---visually-hidden {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  h1,
+  #---page-title {
+    height: calc(100vh - 4rem);
+    padding: 1em;
+    font-size: 150%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+    box-shadow: inset 0 -20vw 20vw var(--rms-bg-shadow);
+  }
+
+  h1 span,
+  #---page-subtitle {
+    display: block;
+    text-transform: uppercase;
+    font-size: 66.6%;
+  }
+
+  nav,
+  #---nav-links {
+    position: sticky;
+    top: 0;
+    background: var(--rsm-bg);
+    height: 4rem;
+    z-index: 10;
+  }
+
+  nav ul,
+  #---nav-link-list {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    box-shadow: 0 0.1em 1em var(--rms-bg-shadow);
+  }
+
+  main > section {
+    padding: 1rem;
+    max-width: 80ch;
+    margin: 0 auto;
+  }
+
+  section h2 {
+    font-size: 120%;
+    text-align: center;
+    margin: 5em 0 2em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  section > :is(h3, .h3) {
+    margin: 2em 0 1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--rsm-fg);
+  }
+
+  section p {
+    margin-bottom: 1em;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  table :is(th, td) {
+    padding: 0.5em 0;
+    text-align: left;
+    vertical-align: top;
+    font-weight: normal;
+  }
+
+  table :is(th, td):not(:last-child) {
+    padding-right: 0.5em;
+  }
+
+  thead th,
+  #---table-header-typography {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  thead tr,
+  #---table-header-separator {
+    border-bottom: 2px solid var(--rsm-fg-light);
+  }
+
+  tbody tr,
+  #---table-borders {
+    border-top: 1px solid var(--rsm-fg-light);
+    border-bottom: 1px solid var(--rsm-fg-light);
+  }
+
+  tbody tr:hover :is(th, td),
+  #---table-row-hover-fx {
+    background: var(--rsm-fg-light);
+  }
+
+  label,
+  #---label-reset {
+    cursor: pointer;
+    flex: none;
+  }
+
+  label:focus,
+  label:focus-within,
+  #--label-focus-indicator {
+    outline: 2px;
+  }
+
+  svg,
+  #---svg-reset {
+    flex: none;
+  }
+
+  button,
+  #---button-reset {
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font: inherit;
+    flex: none;
+  }
+
+  rsm-summary-table button,
+  #---button-styled {
+    padding: 0.5em 1em;
+    border-radius: 0.2em;
+    background: var(--rsm-fg);
+    color: var(--rsm-bg);
+  }
+
+  #experience > ul {
+    padding-top: 2rem;
+  }
+
+  #experience > ul > li {
+    position: relative;
+    padding-left: 2rem;
+    margin-left: 1rem;
+    padding-bottom: 4rem;
+    border-left: 2px solid var(--rsm-fg);
+  }
+
+  #experience > ul > li::before {
+    --rsm-stop-marker-size: 1.2em;
+    content: '';
+    width: var(--rsm-stop-marker-size);
+    height: var(--rsm-stop-marker-size);
+    border: 2px solid var(--rsm-fg);
+    background: var(--rsm-bg);
+    border-radius: 1.2rem;
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    transform: translate(-50%, 0.5em);
+    transition: background-color 0.5s;
+    z-index: 1;
+  }
+
+  #experience > ul > li:hover::before {
+    background: var(--rsm-fg);
+  }
+
+  #experience .h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #experience h4 {
+    position: relative;
+    left: -0.5em;
+    border: 2px solid var(--rsm-fg);
+    padding: 0.5em;
+    border-radius: 0.5em;
+    max-width: max-content;
+    margin-bottom: 1em;
+    display: flex;
+    gap: 0.5em;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  #experience h4::before {
+    content: '';
+    background: var(--rsm-fg);
+    height: 2px;
+    width: 1em;
+    position: absolute;
+    top: calc(1em - 1px);
+    right: calc(100% + 2px);
+  }
+
+  #experience h4 a {
+    text-transform: uppercase;
+  }
+
+  #experience h4 span {
+    font-size: 87.5%;
+  }
+
+  #experience h4 + div {
+    display: block;
+    margin-bottom: 1em;
+    font-size: 87.5%;
+  }
+
+  #experience h4 + div :first-child {
+    font-weight: bold;
+  }
+
+  #experience h5 {
+    font-weight: bold;
+    margin: 1em 0 0.5em;
+    text-transform: uppercase;
+  }
+
+  .experience-details {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .experience-details > :first-child {
+    width: 26ch;
+    flex: none;
+    padding-right: 2em;
+  }
+
+  .experience-details > :last-child {
+    flex-basis: 46ch;
+  }
+
+  .experience-details ul {
+    display: flex;
+    gap: 0.6em;
+  }
+
+  .experience-details li {
+    width: max-content;
+  }
+
+  .experience-details :first-child ul {
+    flex-direction: column;
+  }
+
+  .experience-details :last-child ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .experience-details li {
+    display: inline-block;
+    padding: 0.2em 0.5em;
+    border: 1px solid var(--rsm-fg);
+    background: var(--rsm-fg-light);
+    border-radius: 0.5em;
+  }
+
+  .experience-details + section ul {
+    padding-left: 1em;
+  }
+
+  .experience-details + section li {
+    padding-bottom: 0.5rem;
+    list-style: disc;
+  }
+
+  #experience table {
+    margin-bottom: 1em;
+  }
+
+  #experience table :is(th, td):is(:nth-child(2), :nth-child(3)) {
+    text-align: right;
+    width: 25%;
+  }
+
+  #experience table :is(th, td):first-child {
+    width: 50%;
+  }
+
+  #experience tbody tr {
+    --rsm-skill-fade: 1;
+    transition: opacity 0.3s;
+  }
+
+  th.sorted::before {
+    display: inline-block;
+    content: '▼';
+    font-size: 50%;
+    transform: translateY(-15%);
+    padding-right: 0.3em;
+  }
+
+  th[data-sortable]:not(.sorted) {
+    cursor: pointer;
+  }
+
+  th[data-sortable]:not(.sorted):hover {
+    color: var(--rsm-fg-link);
+    text-decoration: underline;
+  }
+
+  #experience svg {
+    width: 1.2em;
+    height: 1.2em;
+  }
+
+  #sprite-container {
+    position: absolute;
+    right: 100%;
+    bottom: 100%;
+  }
+
+  rsm-table-view-modes:not([hidden]),
+  #---view-mode-button-list {
+    display: flex;
+    gap: 0.7em;
+  }
+
+  rsm-table-view-modes button,
+  #---view-mode-button {
+    position: relative;
+    transition: color 0.3s;
+    overflow: hidden;
+  }
+
+  rsm-table-view-modes button[aria-checked="true"],
+  #---view-mode-button-active-state {
+    color: var(--rsm-fg-link-visited);
+  }
+
+  rsm-table-view-modes button span:last-child,
+  #---tooltip-default-state {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 0.5em);
+    background: var(--rsm-fg);
+    color: var(--rsm-bg);
+    padding: 0.2em 0.5em;
+    text-transform: none;
+    width: max-content;
+    max-width: 80vw;
+    font-size: 87.5%;
+    border-radius: 0.2em;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s 0.5s;
+  }
+
+  rsm-table-view-modes button span:last-child::before,
+  #---tooltip-arrow {
+    content: '';
+    display: block;
+    border: 0.3em solid transparent;
+    border-top-color: var(--rsm-fg);
+    position: absolute;
+    top: 100%;
+    right: 0.4em;
+  }
+
+  rsm-table-view-modes button:hover {
+    overflow: visible;
+  }
+
+  rsm-table-view-modes button:hover span:last-child,
+  #---tooltip-active-state {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  rsm-summary-table[chart] .experience-years {
+    display: none;
+  }
+
+  rsm-summary-table[chart] .experience-graph {
+    display: block;
+  }
+
+  rsm-summary-table[fade] tbody tr {
+    opacity: var(--rsm-skill-fade);
+  }
+
+  .experience-graph {
+    --rsm-exp-pct: 0;
+    width: 100%;
+    height: 0.75em;
+    display: none;
+    overflow: hidden;
+    border: 1px solid var(--rsm-fg);
+    border-radius: 0.2em;
+  }
+
+  .experience-graph::before {
+    content: '';
+    display: block;
+    background: var(--rsm-fg);
+    width: var(--rsm-exp-pct);
+    height: 100%;
+  }
+}
+
+@media print {
+  nav {
+    display: none;
+  }
+}
+

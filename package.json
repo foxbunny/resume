@@ -5,7 +5,7 @@
   "main": "gen-resume.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx nodemon gen-resume.js",
+    "start": "npx nodemon -e js,css gen-resume.js",
     "build": "node gen-resume.js",
     "clean": "del index.html || rm index.html"
   },

@@ -130,6 +130,12 @@
     width: 100%;
   }
 
+  thead {
+    background: var(--rsm-bg);
+    position: sticky;
+    top: 3.2em;
+  }
+
   table :is(th, td) {
     padding: 0.5em 0;
     text-align: left;
@@ -426,11 +432,11 @@
     right: 0.4em;
   }
 
-  rsm-table-view-modes button:hover {
+  rsm-table-view-modes button:is(:hover, :focus) {
     overflow: visible;
   }
 
-  rsm-table-view-modes button:hover span:last-child,
+  rsm-table-view-modes button:is(:hover, :focus) span:last-child,
   #---tooltip-active-state {
     opacity: 1;
     pointer-events: auto;

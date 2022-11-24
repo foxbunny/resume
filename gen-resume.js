@@ -296,7 +296,6 @@ let
         }
         maxExp = Math.max(maxExp, e.experience += duration)
         e.lastUsed = Math.max(e.lastUsed, lastYear)
-        console.log(e.lastUsed)
       },
       entries() {
         return Object.entries(exp).sort((a, b) => b[1].experience - a[1].experience)

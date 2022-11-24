@@ -16,7 +16,7 @@ let
         'CI/CD',
         'Team leadership',
         'Mentorship',
-        'Unit testing',
+        'Automated testing',
       ],
       stack: [
         'NodeJS',
@@ -58,7 +58,7 @@ let
         'DevOps',
         'Team leadership',
         'Mentorship',
-        'Unit testing',
+        'Automated testing',
       ],
       stack: [
         'JavaScript',
@@ -94,7 +94,7 @@ let
         'Front-end',
         'Functional programming',
         'Mentorship',
-        'Unit testing',
+        'Automated testing',
       ],
       stack: [
         'JavaScript',
@@ -129,7 +129,7 @@ let
         'DevOps',
         'Team leadership',
         'Mentorship',
-        'Unit testing',
+        'Automated testing',
       ],
       stack: [
         'JavaScript',
@@ -203,7 +203,7 @@ let
         'Server-side rendering',
         'UX design',
         'DevOps',
-        'Unit testing',
+        'Automated testing',
       ],
       stack: [
         'JavaScript',

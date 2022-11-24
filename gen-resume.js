@@ -16,6 +16,7 @@ let
         'CI/CD',
         'Team leadership',
         'Mentorship',
+        'Unit testing',
       ],
       stack: [
         'NodeJS',
@@ -26,6 +27,7 @@ let
         'Vanilla JavaScript',
         'NodeJS',
         'React.js',
+        'Jest',
         'MobX',
         'Webpack',
         'Plotly.js',
@@ -40,6 +42,7 @@ let
         'Mentored junior developers',
         'Defined the processes for better project and workflow visibility',
         'Started work on implementing web accessibility practices and code',
+        'Built a lightweight e2e testing framework for Vanilla JS projects',
       ],
     },
     {
@@ -55,6 +58,7 @@ let
         'DevOps',
         'Team leadership',
         'Mentorship',
+        'Unit testing',
       ],
       stack: [
         'JavaScript',
@@ -64,6 +68,7 @@ let
         'CSS',
         'SCSS',
         'VueJS',
+        'Jest',
         'Django',
         'Webpack',
         'PostgreSQL',
@@ -89,6 +94,7 @@ let
         'Front-end',
         'Functional programming',
         'Mentorship',
+        'Unit testing',
       ],
       stack: [
         'JavaScript',
@@ -97,6 +103,7 @@ let
         'SCSS',
         'React.js',
         'Redux',
+        'Jest',
         'RamdaJS',
         'Icon fonts',
       ],
@@ -122,7 +129,7 @@ let
         'DevOps',
         'Team leadership',
         'Mentorship',
-        'NodeJS',
+        'Unit testing',
       ],
       stack: [
         'JavaScript',
@@ -132,7 +139,9 @@ let
         'CSS',
         'SCSS',
         'Vanilla JavaScript',
+        'NodeJS',
         'Bottle.py',
+        'Pytest',
         'PostgreSQL',
         'SQLite',
         'Linux',
@@ -194,6 +203,7 @@ let
         'Server-side rendering',
         'UX design',
         'DevOps',
+        'Unit testing',
       ],
       stack: [
         'JavaScript',
@@ -205,6 +215,7 @@ let
         'jQuery UI',
         'NodeJS',
         'Django',
+        'Pytest',
         'Google AppEngine',
         'RequireJS',
         'PostgreSQL',
@@ -384,15 +395,15 @@ let
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <meta http-equiv="X-UA-Compatible" content="ie=edge">
-          <title>Hajime Yamasaki Vukelić - professional résumé</title>
+          <title>Hajime Yamasaki Vukelić - professional resume</title>
           <meta name="description" content="Hajime Yamsaki Vukelic's professional history, skill overview, and contact information">
           <style>${fs.readFileSync(path.resolve(__dirname, 'index.css'))}</style>
         </head>
         <body>
           <!--
-          Thank you for taking the time to review the source code of this résumé.
+          Thank you for taking the time to review the source code of this resume.
 
-          Although it may sound silly for a résumé, I have cut no corners. This is the
+          Although it may sound silly for a resume, I have cut no corners. This is the
           best code I can write given the requirements listed further below, and this is
           how I write actual applications in real-life (except for the changes made
           specifically here to keep the page self-contained, noted below). Contrary to
@@ -437,10 +448,10 @@ let
 
           -->
         
-          <h1>Hajime Yamasaki Vukelić <span>professional résumé</span></h1>
+          <h1>Hajime Yamasaki Vukelić <span>professional resume</span></h1>
 
           <nav aria-labelledby="nav-heading">
-            <h2 id="nav-heading">Résumé contents</h2>
+            <h2 id="nav-heading">Resume contents</h2>
 
             <ul>
               <li><a href="#" aria-label="Page top">#</a></li>

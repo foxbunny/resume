@@ -4,6 +4,27 @@
   let
     TRUE_FALSE_SWITCH = { true: 'false', false: 'true' }
 
+  let
+    $darkModeToggle = document.getElementById('dark-mode-toggle')
+
+  let
+    toggleButtonThemeIndicator = () =>
+      $darkModeToggle.setAttribute(
+        'aria-checked',
+        TRUE_FALSE_SWITCH[$darkModeToggle.getAttribute('aria-checked')]
+      ),
+    toggleTheme = () =>
+      document.body.classList.toggle('dark', $darkModeToggle.getAttribute('aria-checked') === 'true')
+
+  let
+    onToggleDarkMode = () => {
+      toggleButtonThemeIndicator()
+      toggleTheme()
+    }
+
+  $darkModeToggle.onclick = onToggleDarkMode
+  $darkModeToggle.parentElement.hidden = false
+
   customElements.define('rsm-summary-table', class extends HTMLElement {
     connectedCallback() {
       let

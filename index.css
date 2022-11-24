@@ -23,16 +23,27 @@
 
   :root {
     --rsm-bg: #fcfcef;
-    --rms-bg-shadow: #c2c2af;
+    --rsm-sky: #b6e1ec;
+    --rsm-bg-shadow: #d1d9c2;
     --rsm-fg: #2b3739;
     --rsm-fg-light: #e3e8e8;
     --rsm-fg-link: #0690af;
     --rsm-fg-link-visited: #800e8d;
   }
 
+  .dark {
+    --rsm-bg: #2b3739;
+    --rsm-sky: #1a1a1d;
+    --rsm-bg-shadow: #714a1b;
+    --rsm-fg: #fcfcef;
+    --rsm-fg-light: #84847e;
+    --rsm-fg-link-visited: #ae0fc1;
+  }
+
   body {
     background: var(--rsm-bg);
-    font-size: 120%;
+    color: var(--rsm-fg);
+    font-size: clamp(100%, 1vw, 150%);
   }
 
   a {
@@ -64,14 +75,28 @@
   #---page-title {
     height: calc(100vh - 4rem);
     padding: 1em;
-    font-size: 150%;
+    font-size: clamp(150%, 5vw, 290%);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
     text-align: center;
-    box-shadow: inset 0 -20vw 20vw var(--rms-bg-shadow);
+    background: var(--rsm-sky);
+    box-shadow: inset 0 -30vh 30vh var(--rsm-bg-shadow);
+    animation: swirl 10s ease-in-out infinite forwards;
+  }
+
+  @keyframes swirl {
+    from {
+      box-shadow: inset 0 -30vh 30vh var(--rsm-bg-shadow);
+    }
+    50% {
+      box-shadow: inset 0 0 30vh var(--rsm-bg-shadow);
+    }
+    to {
+      box-shadow: inset 0 -30vh 30vh var(--rsm-bg-shadow);
+    }
   }
 
   h1 span,
@@ -99,6 +124,12 @@
     align-items: center;
     height: 100%;
     box-shadow: 0 0.1em 1em var(--rms-bg-shadow);
+  }
+
+  nav li {
+    display: flex;
+    height: 100%;
+    align-items: center;
   }
 
   main > section {
@@ -186,6 +217,11 @@
     flex: none;
   }
 
+  svg[hidden],
+  #---svg-hidden-reset {
+    display: none;
+  }
+
   button,
   #---button-reset {
     cursor: pointer;
@@ -193,6 +229,21 @@
     background: transparent;
     font: inherit;
     flex: none;
+    color: inherit;
+  }
+
+  #dark-mode-toggle {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  #dark-mode-toggle[aria-checked="true"] svg:first-child,
+  #---dark-mode-on-icon {
+    display: none;
+  }
+  #dark-mode-toggle[aria-checked="false"] svg:last-of-type,
+  #---dark-mode-on-icon {
+    display: none;
   }
 
   rsm-summary-table button,
@@ -301,7 +352,7 @@
   }
 
   .experience-details > :last-child {
-    flex-basis: 46ch;
+    flex-basis: 44ch;
   }
 
   .experience-details ul {
@@ -374,7 +425,9 @@
     text-decoration: underline;
   }
 
-  #experience svg {
+  #dark-mode-toggle svg,
+  #experience svg,
+  #---inline-icon-size {
     width: 1.2em;
     height: 1.2em;
   }
@@ -392,8 +445,13 @@
   }
 
   rsm-table-view-modes button,
-  #---view-mode-button {
+  #dark-mode-toggle,
+  #---tooltip-container {
     position: relative;
+  }
+
+  rsm-table-view-modes button,
+  #---view-mode-button {
     transition: color 0.3s;
     overflow: hidden;
   }
@@ -404,6 +462,7 @@
   }
 
   rsm-table-view-modes button span:last-child,
+  #dark-mode-toggle span:last-child,
   #---tooltip-default-state {
     position: absolute;
     right: 0;
@@ -422,6 +481,7 @@
   }
 
   rsm-table-view-modes button span:last-child::before,
+  #dark-mode-toggle span:last-child::before,
   #---tooltip-arrow {
     content: '';
     display: block;
@@ -432,11 +492,14 @@
     right: 0.4em;
   }
 
-  rsm-table-view-modes button:is(:hover, :focus) {
+  rsm-table-view-modes button:is(:hover, :focus),
+  #dark-mode-toggle:is(:hover, :focus),
+  #---tooltip-container-overflow-fix {
     overflow: visible;
   }
 
   rsm-table-view-modes button:is(:hover, :focus) span:last-child,
+  #dark-mode-toggle:is(:hover, :focus) span:last-child,
   #---tooltip-active-state {
     opacity: 1;
     pointer-events: auto;

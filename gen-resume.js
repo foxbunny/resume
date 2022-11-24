@@ -380,63 +380,64 @@ let
     return `
       <!doctype html>
 
-      <!--
-      Thank you for taking the time to review the source code of this résumé.
-
-      Although it may sound silly for a résumé, I have cut no corners. This is the
-      best code I can write given the requirements listed further below, and this is
-      how I write actual applications in real-life (except for the changes made
-      specifically here to keep the page self-contained, noted below). Contrary to
-      common belief, this way of writing applications has given me the most
-      flexibility and performance relative to the more prevalent approaches, and I 
-      can complete applications of much bigger scope, much faster this way. This is
-      therefore also a scalable approach. If you're curious, I could talk about it 
-      all day... for free. \(^o^)/
-
-      Requirements:
-
-      - Completely self-contained.
-      - Load in the browser without any special tools.
-      - Work regardless of what the browser supports: with or without CSS, with 
-        or without JavaScript, etc.
-      - Aaccessible to screen readers.
-      - Printable.
-      - Interactive, offer different pre-analyzed views of the information.
-
-      Notes:
-
-      - A simple NodeJS script generates all of the HTMl to avoid repetition.
-      - Images, CSS and JavaScript are all embedded. There are no links to external
-        resources so the page can work offline or in environments where network
-        connectivity is restricted. Normally these would all be external and either
-        linked to from the CSS file or in the HEAD tag with appropriate media (CSS)
-        and defer (JS) attributes.
-      - Progressively enhanced.
-      - The HTML was coded first without any consideration for appearance, then read
-        by the screen reader, and then the CSS and JavaScript were applied after the
-        fact.
-      - The stylesheet is divided into distinct sections for screen and print media.
-        This would normally be achieved using two CSS files, where both would have a
-        media attribute on the LINK tags, but this page needed to be self-contained
-        for convenience, so we use media queries instead.
-      - Support for older browsers is not taken into account.
-      - Support for Safari-based browser is not specifically tested, though it should
-        work.
-      - Only semantic classes used, preferably select ID or naked elements where 
-        possible.
-      - Using dummy id selector with triple-dash prefix to name declaration blocks
-
-      -->
-
       <html lang="en">
         <head>
           <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <meta http-equiv="X-UA-Compatible" content="ie=edge">
           <title>Hajime Yamasaki Vukelić - professional résumé</title>
+          <meta name="description" content="Hajime Yamsaki Vukelic's professional history, skill overview, and contact information">
           <style>${fs.readFileSync(path.resolve(__dirname, 'index.css'))}</style>
         </head>
         <body>
+          <!--
+          Thank you for taking the time to review the source code of this résumé.
+
+          Although it may sound silly for a résumé, I have cut no corners. This is the
+          best code I can write given the requirements listed further below, and this is
+          how I write actual applications in real-life (except for the changes made
+          specifically here to keep the page self-contained, noted below). Contrary to
+          common belief, this way of writing applications has given me the most
+          flexibility and performance relative to the more prevalent approaches, and I 
+          can complete applications of much bigger scope, much faster this way. This is
+          therefore also a scalable approach. If you're curious, I could talk about it 
+          all day... for free. \(^o^)/
+
+          Requirements:
+
+          - Completely self-contained.
+          - Load in the browser without any special tools.
+          - Work regardless of what the browser supports: with or without CSS, with 
+            or without JavaScript, etc.
+          - Aaccessible to screen readers.
+          - Printable.
+          - Interactive, offer different pre-analyzed views of the information.
+
+          Notes:
+
+          - A simple NodeJS script generates all of the HTMl to avoid repetition.
+          - Images, CSS and JavaScript are all embedded. There are no links to external
+            resources so the page can work offline or in environments where network
+            connectivity is restricted. Normally these would all be external and either
+            linked to from the CSS file or in the HEAD tag with appropriate media (CSS)
+            and defer (JS) attributes.
+          - Progressively enhanced.
+          - The HTML was coded first without any consideration for appearance, then read
+            by the screen reader, and then the CSS and JavaScript were applied after the
+            fact.
+          - The stylesheet is divided into distinct sections for screen and print media.
+            This would normally be achieved using two CSS files, where both would have a
+            media attribute on the LINK tags, but this page needed to be self-contained
+            for convenience, so we use media queries instead.
+          - Support for older browsers is not taken into account.
+          - Support for Safari-based browser is not specifically tested, though it should
+            work.
+          - Only semantic classes used, preferably select ID or naked elements where 
+            possible.
+          - Using dummy id selector with triple-dash prefix to name declaration blocks
+
+          -->
+        
           <h1>Hajime Yamasaki Vukelić <span>professional résumé</span></h1>
 
           <nav aria-labelledby="nav-heading">
@@ -448,6 +449,13 @@ let
               <li><a href="#experience">Experience</a></li>
               <li><a href="#more">More</a></li>
               <li><a href="#contact">Contact</a></li>
+              <li hidden>
+                <button id="dark-mode-toggle" role="switch" aria-checked="false">
+                  <svg><use href="#moon"></use></svg>
+                  <svg><use href="#sun"></use></svg>
+                  <span>Toggle light and dark theme</span>
+                </button>
+              </li>
             </ul>
           </nav>
 
@@ -575,6 +583,12 @@ let
                   <rect x="3" y="11" width="26" height="4" style="fill-opacity:0.5;" fill="currentColor"/>
                   <rect x="3" y="17" width="26" height="4" style="fill-opacity:0.25;" fill="currentColor"/>
                   <rect x="3" y="23" width="26" height="4" style="fill-opacity:0.1;" fill="currentColor"/>
+                </symbol>
+                <symbol id="moon" viewBox="0 0 32 32">
+                  <path d="M14.753,3.558c6.236,0.716 11.086,6.02 11.086,12.447c-0,6.915 -5.615,12.53 -12.53,12.53c-2.705,-0 -5.211,-0.86 -7.261,-2.32c0.474,0.054 0.956,0.082 1.444,0.082c6.915,0 12.529,-5.614 12.529,-12.53c0,-4.21 -2.08,-7.938 -5.268,-10.209Z" fill="currentColor"/>
+                </symbol>
+                <symbol id="sun" viewBox="0 0 32 32">
+                  <path d="M18,27.779c0,-0.417 -0.339,-0.756 -0.756,-0.756l-2.488,0c-0.417,0 -0.756,0.339 -0.756,0.756l0,1.511c0,0.417 0.339,0.756 0.756,0.756l2.488,0c0.417,0 0.756,-0.339 0.756,-0.756l0,-1.511Zm5.959,-0.957c0.295,0.295 0.774,0.295 1.069,-0l1.759,-1.76c0.295,-0.295 0.295,-0.773 0,-1.068l-1.068,-1.069c-0.295,-0.295 -0.774,-0.295 -1.069,-0l-1.76,1.759c-0.295,0.295 -0.295,0.774 0,1.069l1.069,1.069Zm-14.849,-1.069c0.295,-0.295 0.295,-0.774 -0,-1.069l-1.76,-1.759c-0.295,-0.295 -0.774,-0.295 -1.069,-0l-1.068,1.069c-0.295,0.295 -0.295,0.773 -0,1.068l1.759,1.76c0.295,0.295 0.774,0.295 1.069,-0l1.069,-1.069Zm6.89,-18.73c4.967,0 9,4.033 9,9c0,4.967 -4.033,9 -9,9c-4.967,0 -9,-4.033 -9,-9c0,-4.967 4.033,-9 9,-9Zm0,2c3.863,0 7,3.137 7,7c-0,3.863 -3.137,7 -7,7c-3.863,0 -7,-3.137 -7,-7c0,-3.863 3.137,-7 7,-7Zm13.256,9.012c0.417,-0 0.756,-0.339 0.756,-0.756l-0,-2.489c-0,-0.417 -0.339,-0.755 -0.756,-0.755l-1.512,-0c-0.417,-0 -0.756,0.338 -0.756,0.755l0,2.489c0,0.417 0.339,0.756 0.756,0.756l1.512,-0Zm-25,-0c0.417,-0 0.756,-0.339 0.756,-0.756l-0,-2.489c-0,-0.417 -0.339,-0.755 -0.756,-0.755l-1.512,-0c-0.417,-0 -0.756,0.338 -0.756,0.755l0,2.489c0,0.417 0.339,0.756 0.756,0.756l1.512,-0Zm2.025,-8.891c0.295,0.295 0.774,0.295 1.069,0l1.76,-1.759c0.295,-0.295 0.295,-0.774 -0,-1.069l-1.069,-1.069c-0.295,-0.295 -0.774,-0.295 -1.069,0l-1.759,1.76c-0.295,0.295 -0.295,0.774 -0,1.069l1.068,1.068Zm20.506,-1.068c0.295,-0.295 0.295,-0.774 0,-1.069l-1.759,-1.76c-0.295,-0.295 -0.774,-0.295 -1.069,0l-1.069,1.069c-0.295,0.295 -0.295,0.774 0,1.069l1.76,1.759c0.295,0.295 0.774,0.295 1.069,0l1.068,-1.068Zm-8.787,-5.297c0,-0.417 -0.339,-0.756 -0.756,-0.756l-2.488,0c-0.417,0 -0.756,0.339 -0.756,0.756l0,1.511c0,0.417 0.339,0.756 0.756,0.756l2.488,0c0.417,0 0.756,-0.339 0.756,-0.756l0,-1.511Z" fill="currentColor"/>
                 </symbol>
               </svg>
             </div>

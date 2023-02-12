@@ -22,8 +22,8 @@
   }
 
   :root {
-    --rsm-bg: #fcfcef;
-    --rsm-sky: #b6e1ec;
+    --rsm-bg: #fcf8ef;
+    --rsm-sky: #ecd6b6;
     --rsm-bg-shadow: #d1d9c2;
     --rsm-fg: #2b3739;
     --rsm-fg-light: #e3e8e8;
@@ -237,11 +237,11 @@
     align-items: center;
   }
 
-  #dark-mode-toggle[aria-checked="true"] svg:first-child,
+  #dark-mode-toggle[aria-checked='true'] svg:first-child,
   #---dark-mode-on-icon {
     display: none;
   }
-  #dark-mode-toggle[aria-checked="false"] svg:last-of-type,
+  #dark-mode-toggle[aria-checked='false'] svg:last-of-type,
   #---dark-mode-on-icon {
     display: none;
   }
@@ -456,7 +456,7 @@
     overflow: hidden;
   }
 
-  rsm-table-view-modes button[aria-checked="true"],
+  rsm-table-view-modes button[aria-checked='true'],
   #---view-mode-button-active-state {
     color: var(--rsm-fg-link-visited);
   }
@@ -537,8 +537,108 @@
 }
 
 @media print {
-  nav {
+  html {
+    font-family: sans-serif;
+    line-height: 140%;
+  }
+
+  body {
+    max-width: 120ch;
+    margin: 0 auto;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+  }
+
+  h1 {
+    text-align: center;
+    margin: 5rem 0;
+    font-size: 200%;
+    line-height: 120%;
+  }
+
+  h1 span {
+    display: block;
+    font-size: 50%;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  h2 {
+    font-size: 120%;
+    text-transform: uppercase;
+    margin: 2rem 0;
+    border-bottom: 1px solid black;
+  }
+
+  h3 {
+    font-weight: bold;
+    font-size: 120%;
+    margin: 2rem 0;
+  }
+
+  h4 {
+    font-weight: normal;
+  }
+
+  h4 a {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  h4 span {
+    display: block;
+  }
+
+  nav, button {
     display: none;
+  }
+
+  tr[hidden] {
+    display: table-row;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  table :is(th, td) {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+  }
+
+  table :is(th, td):not(:first-child) {
+    text-align: right;
+    padding: 0.5em 1em;
+  }
+
+  table :is(td, th):first-child {
+    text-align: left;
+    padding: 0.5em 1em 0.5em 0;
+  }
+
+  thead th {
+    padding-top: 1em;
+    border-bottom-width: 3px;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
+  :is(#experience-details, #more) a:after {
+    content: attr(href);
+    padding: 0 0.5em;
+    opacity: 0.7;
+    font-weight: normal;
+  }
+
+  .experience-details {
+    display: flex;
+    gap: 4rem;
   }
 }
 

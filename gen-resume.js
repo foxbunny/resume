@@ -4,6 +4,35 @@ let path = require('path')
 let
   EXPERIENCES = [
     {
+      company: 'Freelance',
+      url: 'https://github.com/foxbunny/',
+      position: 'Software engineer',
+      start: '2022-11',
+      skills: [
+        'Front-end',
+        'Web scraping',
+        'Back-end',
+        'DevOps',
+      ],
+      stack: [
+        'JavaScript',
+        'Python',
+        'HTML',
+        'CSS',
+        'NodeJS',
+        'Django',
+        'Vanilla JavaScript',
+        'PostgreSQL',
+        'RDKit',
+        'PubChemPy',
+      ],
+      highlights: [
+        'Project estimation application with real-time collaboration (WIP)',
+        'Create an idempotent auto-updating scraper using NodeJS',
+        'Integration of some vanilla JavaScript functionality into a Django project',
+      ],
+    },
+    {
       company: 'Coin Metrics',
       url: 'https://coinmetrics.io/',
       start: '2020-01',
@@ -19,7 +48,6 @@ let
         'Automated testing',
       ],
       stack: [
-        'NodeJS',
         'JavaScript',
         'TypeScript',
         'HTML',
@@ -327,7 +355,9 @@ let
         <div>
           <span>${formatDuration(duration)}</span>
           from <time datetime="${x.start}">${formatMonth(x.start)}</time> 
-          to <time datetime="${x.end}">${formatMonth(x.end)}</time>
+          to ${x.end 
+            ? `<time datetime="${x.end || getIsoCurrentYearMonth}">${formatMonth(x.end)}</time>`
+            : 'present'}
         </div>
         
         <div class="experience-details">
@@ -381,7 +411,7 @@ let
     let techExperience = createSkillExperienceCollector()
 
     for (let x of EXPERIENCES) {
-      let endYear = Number(x.end.split('-')[0])
+      let endYear = Number((x.end || getIsoCurrentYearMonth()).split('-')[0])
       let duration = getDuration(x.start, x.end)
       for (let s of x.skills) skillExperience.add(s, duration, endYear)
       for (let s of x.stack) techExperience.add(s, duration, endYear)
